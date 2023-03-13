@@ -3,7 +3,10 @@ name = "comby-search"
 description = "Structural Code Search using Comby"
 version = "0.1.0"
 edition = "2021"
-git = "https://github.com/huytd/comby-search"
+homepage = "https://github.com/huytd/comby-search"
+repository = "https://github.com/huytd/comby-search"
+license = "BSD-3-Clause"
+authors = ["Huy Tran <hey@huy.rocks>"]
 
 [[bin]]
 name = "cb"
