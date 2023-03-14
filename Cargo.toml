@@ -1,12 +1,14 @@
 [package]
 name = "comby-search"
 description = "Structural Code Search using Comby"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 homepage = "https://github.com/huytd/comby-search"
 repository = "https://github.com/huytd/comby-search"
 license = "BSD-3-Clause"
 authors = ["Huy Tran <hey@huy.rocks>"]
+keywords = ["code", "search", "comby", "code-search"]
+categories = ["command-line-utilities", "development-tools"]
 
 [[bin]]
 name = "cb"
