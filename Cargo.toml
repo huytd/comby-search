@@ -1,7 +1,7 @@
 [package]
 name = "comby-search"
 description = "Structural Code Search using Comby"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 homepage = "https://github.com/huytd/comby-search"
 repository = "https://github.com/huytd/comby-search"

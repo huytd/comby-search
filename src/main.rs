@@ -23,13 +23,14 @@ fn main() {
                 let buf = Command::new("sed").args(["-n", &format!("{},{}p", preview_from, preview_to), file_name]).output().unwrap().stdout;
                 let preview_lines = std::str::from_utf8(&buf).unwrap().lines();
                 println!("{}", file_name.color("green"));
-                for (i, line) in preview_lines.enumerate() {
+                for (i, line_text) in preview_lines.enumerate() {
                     let current_line = preview_from + i;
-                    println!("{} {}", format!("{:>4} │", current_line).dimmed(), if current_line >= highlight_from && current_line < highlight_to {
-                        line.color("red")
+                    let line_number = format!("{:>4}", current_line);
+                    if current_line >= highlight_from && current_line < highlight_to {
+                        println!("{} {} {}", line_number.color("red"), "│".dimmed(), line_text.color("red"));
                     } else {
-                        line.normal()
-                    });
+                        println!("{} {} {}", line_number.dimmed(), "│".dimmed(), line_text.normal());
+                    }
                 }
             }
         }
