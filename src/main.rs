@@ -35,7 +35,11 @@ fn main() {
             let mut parts = output_line.split(':');
             let file_name = parts.next().unwrap();
             let at_line = parts.next().unwrap().parse::<usize>().unwrap();
-            let line_count = parts.collect::<String>().split(r#"\n"#).count();
+            let line_count = parts
+                .collect::<String>()
+                .split(r#"\n"#)
+                .count()
+                .saturating_sub(1);
             let preview_from = at_line.saturating_sub(line_margin).max(1);
             let preview_to = at_line + line_count + line_margin;
             let highlight_from = at_line;
@@ -54,7 +58,7 @@ fn main() {
             for (i, line_text) in preview_lines.enumerate() {
                 let current_line = preview_from + i;
                 let line_number = format!("{:>4}", current_line);
-                if current_line >= highlight_from && current_line < highlight_to {
+                if current_line >= highlight_from && current_line <= highlight_to {
                     println!(
                         "{} {} {}",
                         line_number.color("red"),
